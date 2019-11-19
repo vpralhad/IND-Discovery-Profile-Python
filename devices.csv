@@ -1,0 +1,4 @@
+name,accessProfileId,discoverRelatedDevices,startIp,endIp,groupId,hopCountLimit,isLinkLayerDiscovery
+Discovery_Profile1,100,true,192.168.0.0,192.168.0.255,1,0,false
+Discovery_Profile2,10100,true,10.10.10.0,10.10.10.255,1,0,false
+Discovery_Profile3,10101,true,10.10.20.0,10.10.20.255,1,0,false
