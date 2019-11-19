@@ -1,4 +1,4 @@
-# IND-Discovery-Profile-Python
+# Cisco IND-Discovery-Profile-Python
 Create, Scan, Print and Delete the IND (Industrial Network Director) Discovery Profiles using Python
 
 # Pre-requisites -
