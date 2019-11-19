@@ -55,13 +55,13 @@ def create_discovery_profiles(url):
 
     try:
         output = []
-        with open('/Users/vpralhad/code/IND-Ansible-Discovery/playbooks/devices.csv', 'r') as f:
+        with open('devices.csv', 'r') as f:
             reader = csv.DictReader(f)
             for records in reader:
                 output.append(records)
-        with open('/Users/vpralhad/code/IND-Ansible-Discovery/playbooks/RecordsJson.json','w')as outfile:
+        with open('RecordsJson.json','w')as outfile:
             json.dump(output, outfile, sort_keys=True, indent=4)
-        with open('/Users/vpralhad/code/IND-Ansible-Discovery/playbooks/RecordsJson.json', 'r') as infile:
+        with open('RecordsJson.json', 'r') as infile:
             indata = json.load(infile)
         for data in indata:
             r = requests.post(url, headers=headers, data=json.dumps(data), verify=False)
