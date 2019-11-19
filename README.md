@@ -6,7 +6,7 @@ Create, Scan, Print and Delete the IND (Industrial Network Director) Discovery P
 	2.	requirements.txt (included in the repo)
 	3. 	devices.csv file (included in the repo)
 	4.	WebEx Teams account (along with room id and user token)
-	5. 	Cisco Industrial Network Director installed on machine (for testing, it was installed on local computer)
+	5. 	Cisco Industrial Network Director (in this case, IND 1.7.1 was installed on local computer)
 	6. 	Access Prfoile must have been created in IND prior to running script
 
 # Cisco Industrial Network Director -
