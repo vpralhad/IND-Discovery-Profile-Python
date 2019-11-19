@@ -26,7 +26,7 @@ IND_PASSWORD = env_lab.IND['password']
 IND_Port = env_lab.IND['port']
 headers = {
     'Content-Type': "application/json",
-    'Authorization': "Basic c3lzdGVtYWRtaW46QyFzY28xMjM0NQ==",
+    'Authorization': "Basic c3lzdGaW46QyFzY28xMjQ==",
             }
 
 def create_url(path, controller_ip=IND_Host):
