@@ -1,3 +1,5 @@
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/vpralhad/IND-Discovery-Profile-Python)
+
 # Cisco IND-Discovery-Profile-Python
 Create, Scan, Print and Delete the IND (Industrial Network Director) Discovery Profiles using Python
 
