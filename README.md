@@ -45,7 +45,7 @@ When you clone the repo, it includes folowing files -
 	1.	python discovery.py (Enetr 1 for printing discovery profiles, 2 for creating, 3 for deleting and 4 for scanning 		the profiles)
 	Sample output -
 	
-	![(Images/command prompt output.png)]
+	[!(Images/command prompt output.png)]
 	
 	2. Check if the discovery profiles were created by logging into the IND dashboard  						(https://xx.xx.xx.xx:8443)-->Operate-->Discovery-->Discovery profiles
 	Sample output -
