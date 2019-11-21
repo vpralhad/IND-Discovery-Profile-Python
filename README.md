@@ -3,7 +3,7 @@
 # Cisco IND-Discovery-Profile-Python
 Create, Scan, Print and Delete the IND (Industrial Network Director) Discovery Profiles using Python
 
-# Pre-requisites -
+## Pre-requisites -
 	1.	The python script is tested with 3.6.5 version
 	2.	requirements.txt (included in the repo)
 	3. 	devices.csv file (included in the repo)
@@ -11,16 +11,16 @@ Create, Scan, Print and Delete the IND (Industrial Network Director) Discovery P
 	5. 	Cisco Industrial Network Director (in this case, IND 1.7.1 was installed on local computer)
 	6. 	Access Prfoile must have been created in IND prior to running script
 
-# Cisco Industrial Network Director -
+## Cisco Industrial Network Director -
 
 The Cisco Industrial Network Director is an easy-to-adopt network management system for industrial automation. It is specifically designed to help operations teams manage automation by providing full visibility and control of the Industrial Ethernet infrastructure in the context of the automation process.
 For information, please visit https://www.cisco.com/c/en/us/products/cloud-systems-management/industrial-network-director/index.html
 
-# Script Summary -
+## Script Summary -
 
 The goal of the python script is create, print, delete and scan the discovery profiles and output the result in command prompt as well as in WebEx Teams room.
 
-# Detailed Steps -
+## Detailed Steps -
 
 When you clone the repo, it includes folowing files -
 1.	env_lab.py (IND dteails are defined including credentials)
@@ -41,16 +41,22 @@ When you clone the repo, it includes folowing files -
 	2.	go to https://developer.webex.com/
 	2.	Make sure you are loogedn in click on Documentation on top and go to Getting Started page
 	3.	By scrolling further down, copy the Bearer token (valid for 12 hours) and paste it to env_user.py file (var name 		- SPARK_ACCESS_TOKEN)
+	
+	![](Images/token.png)
+	
 4.	Running the script -
 	1.	python discovery.py (Enetr 1 for printing discovery profiles, 2 for creating, 3 for deleting and 4 for scanning 		the profiles)
-	Sample output -
 	
-	![](images/command.png)
+	### Sample output -
+	
+	![](Images/command.png)
 	
 	2. Check if the discovery profiles were created by logging into the IND dashboard  						(https://xx.xx.xx.xx:8443)-->Operate-->Discovery-->Discovery profiles
-	Sample output -
+	### Sample output -
 	
+	![](Images/ind.png)
 	3. Check the WebEx Teams where you created the room. It should have same output as you got in command prompt.
 	
-	Sampe output -
+	###Sample output -
 	
+	![](Images/wteams.png)
