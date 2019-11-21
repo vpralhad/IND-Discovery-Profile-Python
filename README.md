@@ -19,3 +19,28 @@ For information, please visit https://www.cisco.com/c/en/us/products/cloud-syste
 # Script Summary -
 
 The goal of the python script is create, print and delete the discovery profiles and output the result in command prompt as well as in WebEx Teams room.
+
+# Detailed Explanation -
+
+When you clone the repo, it includes folowing files -
+1.	env_lab.py (IND dteails are defined including credentials)
+2.	env_user.py (your WebEx Teams user token and room ID are defined in this file)
+3.	devices.csv (discovery profile fields are defined here)
+There is one more file called as JasonRecords.json which will be created when you run discovery.py
+
+discovery.py (this is the file you will run)
+2.	
+# Steps -
+
+Run following commands on your computer (in this case, Windows machine is used so)
+1.	git clone https://github.com/vpralhad/IND-Discovery-Profile-Python
+2.	cd IND-Discovery-Profile-Python
+3.	python -m venv venv
+4.	pip install requirements.txt
+
+For WebEx Teams -
+1.	go to https://developer.webex.com/
+2.	Make sure you are loogedn in click on Documentation on top and go to Getting Started page
+3.	By scrolling further down, copy the Bearer token ()
+
+![Screenshot]
