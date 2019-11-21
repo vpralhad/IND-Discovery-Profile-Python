@@ -44,7 +44,13 @@ When you clone the repo, it includes folowing files -
 	
 	![](Images/token.png)
 	
-4.	Running the script -
+4.	Create Access Profile in IND by going into operate-->Discovery-->Device Access Profiles-->New Device Access Profiles (in 
+	this case, 2 access profiles were created)
+	
+	### Sample Output -
+	
+	![](Images/accessprofile.png)
+5.	Running the script -
 	1.	python discovery.py (Enetr 1 for printing discovery profiles, 2 for creating, 3 for deleting and 4 for scanning 		the profiles)
 	
 	### Sample output -
