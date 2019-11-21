@@ -18,7 +18,7 @@ For information, please visit https://www.cisco.com/c/en/us/products/cloud-syste
 
 # Script Summary -
 
-The goal of the python script is create, print and delete the discovery profiles and output the result in command prompt as well as in WebEx Teams room.
+The goal of the python script is create, print, delete and scan the discovery profiles and output the result in command prompt as well as in WebEx Teams room.
 
 # Detailed Explanation -
 
@@ -26,21 +26,29 @@ When you clone the repo, it includes folowing files -
 1.	env_lab.py (IND dteails are defined including credentials)
 2.	env_user.py (your WebEx Teams user token and room ID are defined in this file)
 3.	devices.csv (discovery profile fields are defined here)
-There is one more file called as JasonRecords.json which will be created when you run discovery.py
+4.	There is one more file called as JasonRecords.json which will be created when you run discovery.py
+5.	discovery.py (this is the file you will run)
 
-discovery.py (this is the file you will run)
-2.	
 # Steps -
 
-Run following commands on your computer (in this case, Windows machine is used so)
-1.	git clone https://github.com/vpralhad/IND-Discovery-Profile-Python
-2.	cd IND-Discovery-Profile-Python
-3.	python -m venv venv
-4.	pip install requirements.txt
+1.	Run following commands on your computer (in this case, Windows machine is used so)
+	1.	git clone https://github.com/vpralhad/IND-Discovery-Profile-Python
+	2.	cd IND-Discovery-Profile-Python
+	3.	python -m venv venv
+	4.	pip install requirements.txt
 
-For WebEx Teams -
-1.	go to https://developer.webex.com/
-2.	Make sure you are loogedn in click on Documentation on top and go to Getting Started page
-3.	By scrolling further down, copy the Bearer token ()
-
-![Screenshot]
+2.	WebEx Teams -
+	1.	Create a room in WebEx Teams
+	2.	Add RoomID bot to the room which will create a room id to use in env_user.py (var name SPARK_ROOM_ID)
+	2.	go to https://developer.webex.com/
+	2.	Make sure you are loogedn in click on Documentation on top and go to Getting Started page
+	3.	By scrolling further down, copy the Bearer token (valid for 12 hours) and paste it to env_user.py file (var name 		- SPARK_ACCESS_TOKEN)
+3.	Running the script -
+	1.	python discovery.py (Enetr 1 for printing discovery profiles, 2 for creating, 3 for deleting and 4 for scanning 		the profiles)
+	Sample output -
+	
+	2. Check if the discovery profiles were created by logging into the IND dashboard  						(https://xx.xx.xx.xx:8443)-->Operate-->Discovery-->Discovery profiles
+	3. Check the WebEx Teams where you created the room. It should have same output as you got in command prompt.
+	
+	Sampe output -
+	
