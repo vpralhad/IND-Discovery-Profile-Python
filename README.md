@@ -46,7 +46,7 @@ When you clone the repo, it includes folowing files -
 3.	Running the script -
 	1.	python discovery.py (Enetr 1 for printing discovery profiles, 2 for creating, 3 for deleting and 4 for scanning 		the profiles)
 	Sample output -
-	![alt text](Images/command prompt.png)
+	![GitHub Logo](Images/command prompt.png)
 	
 	2. Check if the discovery profiles were created by logging into the IND dashboard  						(https://xx.xx.xx.xx:8443)-->Operate-->Discovery-->Discovery profiles
 	3. Check the WebEx Teams where you created the room. It should have same output as you got in command prompt.
