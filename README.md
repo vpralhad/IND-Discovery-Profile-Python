@@ -57,6 +57,6 @@ When you clone the repo, it includes folowing files -
 	![](Images/ind.png)
 	3. Check the WebEx Teams where you created the room. It should have same output as you got in command prompt.
 	
-	###Sample output -
+	### Sample output -
 	
 	![](Images/wteams.png)
