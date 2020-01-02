@@ -1,3 +1,4 @@
+#import libraries and packages required for this code to run
 import ciscosparkapi
 import os
 import sys
@@ -20,13 +21,14 @@ spark = ciscosparkapi.CiscoSparkAPI(access_token=env_user.SPARK_ACCESS_TOKEN)
 # Extend the system path to include the project root and import the env files
 sys.path.insert(0, project_root)
 
+#assign IND's IP address, username, password an dport number to newly created variables
 IND_Host = env_lab.IND['host']
 IND_USER = env_lab.IND['username']
 IND_PASSWORD = env_lab.IND['password']
 IND_Port = env_lab.IND['port']
 headers = {
     'Content-Type': "application/json",
-    'Authorization': "Basic c3lzdGaW46QyFzY28xMjQ==",
+    'Authorization': "Basic c3lzdGVtYWRtaW46QyFzY28xMjM0NQ==",
             }
 
 def create_url(path, controller_ip=IND_Host):
@@ -55,21 +57,50 @@ def create_discovery_profiles(url):
 
     try:
         output = []
-        with open('devices.csv', 'r') as f:
+        discovery_id = []
+        with open('/Users/vpralhad/code/IND-Ansible-Discovery/playbooks/devices.csv', 'r') as f:
             reader = csv.DictReader(f)
             for records in reader:
                 output.append(records)
-        with open('RecordsJson.json','w')as outfile:
+        with open('/Users/vpralhad/code/IND-Ansible-Discovery/playbooks/RecordsJson.json','w')as outfile:
             json.dump(output, outfile, sort_keys=True, indent=4)
-        with open('RecordsJson.json', 'r') as infile:
+        with open('/Users/vpralhad/code/IND-Ansible-Discovery/playbooks/RecordsJson.json', 'r') as infile:
             indata = json.load(infile)
         for data in indata:
             r = requests.post(url, headers=headers, data=json.dumps(data), verify=False)
-            print(r, r.text)
+            discovery_id.append(r.json()['record']['id'])
+        #print(len(profile_id))
+        message = spark.messages.create(roomId=env_user.SPARK_ROOM_ID, text="{0:30}{1:17}{2:20}{3:30}".
+            format("Discovery Profile Name","Start IP","End IP",
+            "Access Profile Name"))
+        print("{0:30}{1:17}{2:20}{3:30}".
+        format("Discovery Profile Name","Start IP","End IP",
+        "Access Profile Name"))
+        count = 0
+        while count < len(discovery_id):
+            path = "discovery-profiles/" + str(discovery_id[count])
+            url = "https://%s:%i/api/v1/%s" % (IND_Host, IND_Port, path)
+            r = requests.get(url, headers=headers, data=json.dumps(data), verify=False)
+            response = r.json()
 
+
+
+            print("{0:30}{1:17}{2:20}{3:10}".
+                format(response['record']['name'],
+                        response['record']['startIp'],
+                        response['record']['endIp'],
+                        response['record']['accessProfileName']))
+
+            message = spark.messages.create(roomId=env_user.SPARK_ROOM_ID, text="{0:30}{1:17}{2:20}{3:30}".
+                format(response['record']['name'],
+                        response['record']['startIp'],
+                        response['record']['endIp'],
+                        response['record']['accessProfileName']))
+            count = count + 1
     except requests.exceptions.RequestException as cerror:
         print("Error processing request", cerror)
         sys.exit(1)
+
 
 def delete_discovery_profile(url):
     url = create_url(path=url)
@@ -119,12 +150,12 @@ def print_discovery_profiles():
 
 if __name__ == "__main__":
 
-    choice = input('Enter your choice\n\n 1: Print Discovery Profiles \n 2: Crete Discovery Profiles\n 3: Delete Discovery Profile \n 4: Scan Discovery Profiles\n')
+    choice = input('Enter your choice\n\n 1: Print Discovery Profiles \n 2: Create Discovery Profiles\n 3: Delete Discovery Profile \n 4: Scan Discovery Profiles\n')
     if choice == '1':
         print_discovery_profiles()
     elif choice == '2':
         create_discovery_profiles("discovery-profiles")
-        print_discovery_profiles()
+        #print_discovery_profiles()
         print("Above Discovery Profiles were created")
         message = spark.messages.create(roomId=env_user.SPARK_ROOM_ID, text="Above Discovery Profiles were created")
     elif choice == '3':
