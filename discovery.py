@@ -28,7 +28,7 @@ IND_PASSWORD = env_lab.IND['password']
 IND_Port = env_lab.IND['port']
 headers = {
     'Content-Type': "application/json",
-    'Authorization': "Basic c3lzdGVtYWRtaW46QyFzY28xMjM0NQ==",
+    'Authorization': "Basic xxxxxx",
             }
 
 def create_url(path, controller_ip=IND_Host):
@@ -58,13 +58,13 @@ def create_discovery_profiles(url):
     try:
         output = []
         discovery_id = []
-        with open('/Users/vpralhad/code/IND-Ansible-Discovery/playbooks/devices.csv', 'r') as f:
+        with open('/Users/vpralhad/code/IND-Discovery-Profile-Python/devices.csv', 'r') as f:
             reader = csv.DictReader(f)
             for records in reader:
                 output.append(records)
-        with open('/Users/vpralhad/code/IND-Ansible-Discovery/playbooks/RecordsJson.json','w')as outfile:
+        with open('/Users/vpralhad/code/IND-Discovery-Profile-Python/RecordsJson.json','w')as outfile:
             json.dump(output, outfile, sort_keys=True, indent=4)
-        with open('/Users/vpralhad/code/IND-Ansible-Discovery/playbooks/RecordsJson.json', 'r') as infile:
+        with open('/Users/vpralhad/code/IIND-Discovery-Profile-Python/RecordsJson.json', 'r') as infile:
             indata = json.load(infile)
         for data in indata:
             r = requests.post(url, headers=headers, data=json.dumps(data), verify=False)
